@@ -35,6 +35,7 @@
         
                     </div>
                 {!! Form::close() !!}
+                
                 <h2 class="mt-5 mb-5">動画を削除する</h2>
  
                 @foreach ($movies as $key => $movie)
