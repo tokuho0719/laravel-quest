@@ -24,6 +24,10 @@ Route::resource('users', 'UsersController', ['only' => ['show']]);
 Route::group(['prefix' => 'users/{id}'], function () {
     Route::get('followings', 'UsersController@followings')->name('followings');
     Route::get('followers', 'UsersController@followers')->name('followers');
+    
+    
+    Route::get('del_confirm', 'UsersController@destroy')->name('del_confirm');
+
     });
     
 Route::resource('rest','RestappController', ['only' => ['index', 'show', 'create', 'store', 'destroy']]); //追記
@@ -39,4 +43,7 @@ Route::group(['middleware' => 'auth'], function () {
     
     
     Route::resource('movies', 'MoviesController', ['only' => ['create', 'store', 'destroy']]);
+
 });
+
+

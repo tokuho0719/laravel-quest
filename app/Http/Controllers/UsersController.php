@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use App\User; //追記
 
+use Illuminate\Support\Facades\Auth;
+
+
 class UsersController extends Controller
 {
     public function index()
@@ -84,5 +87,12 @@ class UsersController extends Controller
         $data += $this->counts($user);
 
         return view('users.followers', $data);
+    }
+    
+    public function destroy($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+        return redirect('/');
     }
 }
